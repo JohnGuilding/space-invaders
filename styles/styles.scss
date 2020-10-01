@@ -1,0 +1,55 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.start-menu {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../media/space_background2.png');
+    background-size: cover;
+}
+
+.game-container {
+    height: 520px;
+    width: 1002px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+}
+
+.grid-box {
+    height: 40px;
+    width: 40px;
+}  
+
+.enemy {
+    background-image: url('../media/enemy2.png');
+    background-size: contain;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    background-image: url('../media/hero2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.laser {
+    height: 25px;
+    width: 40px;
+    // background-color: red;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+}
