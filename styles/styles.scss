@@ -2,13 +2,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.start-menu {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    background-color: black;
+    font-family: 'Oxanium', cursive;
 }
 
 body {
@@ -19,6 +13,44 @@ body {
     background-size: cover;
 }
 
+// start menu
+.start-background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.start-game {
+    position: absolute;
+    font-size: 70px;
+    color: white;
+}
+
+// menu, refresh btn and scoreboard
+.menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-menu {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.menu-color {
+    color: white;
+}
+
+// main game container styles
 .game-container {
     height: 520px;
     width: 1002px;
@@ -31,6 +63,7 @@ body {
 .grid-box {
     height: 40px;
     width: 40px;
+    // border: 1px solid yellow;
 }  
 
 .enemy {
@@ -49,7 +82,6 @@ body {
 .laser {
     height: 25px;
     width: 40px;
-    // background-color: red;
     border-top: 2px solid red;
     border-bottom: 2px solid red;
 }

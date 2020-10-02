@@ -1,12 +1,17 @@
-// document.addEventListener('DOMContentLoaded', () => {
-//     const startMenu = document.createElement('DIV');
-//     startMenu.className = 'start-menu';
-//     document.body.appendChild(startMenu);
-// });
+const startBackground = document.querySelector('.start-background');
+const startGame = document.querySelector('.start-game');
+const displayMainMenu = document.querySelector('.main-menu');
+ 
+document.addEventListener('keyup', () => {
+    startBackground.classList.add('display-none');
+    startGame.classList.add('display-none');
+    displayMainMenu.classList.add('.menu-color')
+});
 
 const gridBoxes = document.querySelectorAll('.grid-box');
 
 let heroIndex = 174;
+let enemyIndex = [];
 
 const laserDeathZone = [
     0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300
@@ -80,6 +85,11 @@ let laserId;
         gridBoxes[laserIndex].classList.remove('laser');
         laserIndex -= 1;
         gridBoxes[laserIndex].classList.add('laser');
+
+        if (gridBoxes[laserIndex].classList.contains('enemy')) {
+            gridBoxes[laserIndex].classList.remove('laser');
+            gridBoxes[laserIndex].classList.remove('enemy');
+        }
     
         // REMOVE LASER IF MISSES TARGET //
         if (gridBoxes[laserIndex].classList.contains('laser-death-zone')) {
@@ -103,23 +113,23 @@ document.addEventListener('keyup', fireLaser);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-function sound(src) {
-    this.sound = document.createElement("audio");
-    this.sound.src = src;
-    this.sound.setAttribute("preload", "auto");
-    this.sound.setAttribute("controls", "none");
-    this.sound.style.display = "none";
-    document.body.appendChild(this.sound);
-    this.play = function(){
-        this.sound.play();
-    }
-    this.stop = function(){
-        this.sound.pause();
-    }
-}
+// function sound(src) {
+//     this.sound = document.createElement("audio");
+//     this.sound.src = src;
+//     this.sound.setAttribute("preload", "auto");
+//     this.sound.setAttribute("controls", "none");
+//     this.sound.style.display = "none";
+//     document.body.appendChild(this.sound);
+//     this.play = function(){
+//         this.sound.play();
+//     }
+//     this.stop = function(){
+//         this.sound.pause();
+//     }
+// }
 
 
-function startGame() {
-    myMusic = new sound("./media/background_music.mp3");
-    myMusic.play();
-}
+// function startGame() {
+//     myMusic = new sound("./media/background_music.mp3");
+//     myMusic.play();
+// }

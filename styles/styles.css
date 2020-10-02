@@ -3,13 +3,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-}
-
-.start-menu {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background-color: black;
+  font-family: 'Oxanium', cursive;
 }
 
 body {
@@ -24,6 +18,52 @@ body {
           align-items: center;
   background-image: url("../media/space_background2.png");
   background-size: cover;
+}
+
+.start-background {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.display-none {
+  display: none;
+}
+
+.start-game {
+  position: absolute;
+  font-size: 70px;
+  color: white;
+}
+
+.menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main-menu {
+  height: 50px;
+  width: 50px;
+  position: relative;
+}
+
+.menu-color {
+  color: white;
 }
 
 .game-container {
