@@ -82,11 +82,13 @@ body {
 .grid-box {
   height: 40px;
   width: 40px;
+  border: 1px solid white;
 }
 
 .enemy {
   background-image: url("../media/enemy2.png");
   background-size: contain;
+  border: 3px solid red;
 }
 
 .hero {
@@ -99,6 +101,7 @@ body {
   background-image: url("../media/hero2.png");
   background-size: contain;
   background-repeat: no-repeat;
+  border: 3px solid green;
 }
 
 .laser {
@@ -106,5 +109,9 @@ body {
   width: 40px;
   border-top: 2px solid red;
   border-bottom: 2px solid red;
+}
+
+.end-game-zone {
+  background-color: purple;
 }
 /*# sourceMappingURL=styles.css.map */

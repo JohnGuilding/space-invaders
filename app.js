@@ -1,39 +1,61 @@
 const startBackground = document.querySelector('.start-background');
 const startGame = document.querySelector('.start-game');
 const displayMainMenu = document.querySelector('.main-menu');
- 
-document.addEventListener('keyup', () => {
-    startBackground.classList.add('display-none');
-    startGame.classList.add('display-none');
-    displayMainMenu.classList.add('.menu-color')
-});
+
+// document.addEventListener('keyup', () => {
+//     startBackground.classList.add('display-none');
+//     startGame.classList.add('display-none');
+//     displayMainMenu.classList.add('.menu-color')
+// });
 
 const gridBoxes = document.querySelectorAll('.grid-box');
 
 let heroIndex = 174;
-let enemyIndex = [];
+let direction = 1;
+enemiesKilled = [];
 
 const laserDeathZone = [
     0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300
-]
+];
 
-const enemyIndexLayout = [
+const screenTopZone = [
+    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+];
+const screenBottomZone = [
+    300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315
+];
+
+const enemies = [
     26, 28, 30,
     76, 78, 80,
     126, 128, 130,
     176, 178, 180,
     226, 228, 230,
     276, 278, 280,
-]
+];
 
 // ADDING ZONE WHERE LASER STOPS
 laserDeathZone.forEach((zone) => {
     gridBoxes[zone].classList.add('laser-death-zone');
 });
 
+screenTopZone.forEach((zone) => {
+    gridBoxes[zone].classList.add('screen-top-zone');
+});
+
+screenBottomZone.forEach((zone) => {
+    gridBoxes[zone].classList.add('screen-bottom-zone');
+});
+
+// ENDGAME ZONE //
+const endGameZone = [24, 49, 74, 99, 124, 149, 174, 199, 224, 249, 274, 299, 324];
+
+endGameZone.forEach((zone) => {
+    gridBoxes[zone].classList.add('end-game-zone');
+});
 
 // ADDING ENEMIES TO GRID 
-enemyIndexLayout.forEach((enemy) => {
+enemies.forEach((enemy) => {
     gridBoxes[enemy].classList.add('enemy')
 });
 
@@ -71,6 +93,43 @@ document.addEventListener('keydown', moveHero);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+// MOVE ENEMIES //
+let enemyId;
+
+const moveEnemies = () => {
+
+    // enemies.forEach((enemy) => {
+    //     if (gridBoxes[enemy].classList.contains('screen-top-zone')) {
+    //         direction === 1;
+    //     // } else if (direction === 1) {
+    //     }
+    // });
+    
+    for (let i = 0; i <= enemies.length - 1; i++) {
+        gridBoxes[enemies[i]].classList.remove('enemy');
+    }
+
+    for (let i = 0; i <= enemies.length - 1; i++) {
+        enemies[i] += direction;
+    }
+
+    for (let i = 0; i <= enemies.length - 1; i++) {
+        if (!enemiesKilled.includes(i)){
+            gridBoxes[enemies[i]].classList.add('enemy');
+        }
+    }
+
+    enemies.forEach((enemy) => {
+        if (gridBoxes[enemy].classList.contains('end-game-zone')) {
+            clearInterval(enemyId);
+        }
+    });
+}
+
+enemyId = setInterval(moveEnemies, 500);
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
 // FIRE LAZER FUNCTION //
 const fireLaser = (e) => {
 
@@ -87,6 +146,7 @@ let laserId;
         gridBoxes[laserIndex].classList.add('laser');
 
         if (gridBoxes[laserIndex].classList.contains('enemy')) {
+            clearInterval(laserId)
             gridBoxes[laserIndex].classList.remove('laser');
             gridBoxes[laserIndex].classList.remove('enemy');
         }
@@ -96,7 +156,12 @@ let laserId;
             clearInterval(laserId);
             gridBoxes[laserIndex].classList.remove('laser');
         }
-    
+
+        // score
+        const alienTakenDown = enemies.indexOf(laserIndex);
+        enemiesKilled.push(alienTakenDown);
+        // result ++
+        // resultDisplay.textContent = result;
     }
     
     // PRESS SPACEBAR TO FIRE LASER
