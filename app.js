@@ -2,11 +2,11 @@ const startBackground = document.querySelector('.start-background');
 const startGame = document.querySelector('.start-game');
 const displayMainMenu = document.querySelector('.main-menu');
 
-// document.addEventListener('keyup', () => {
-//     startBackground.classList.add('display-none');
-//     startGame.classList.add('display-none');
-//     displayMainMenu.classList.add('.menu-color')
-// });
+document.addEventListener('keyup', () => {
+    startBackground.classList.add('display-none');
+    startGame.classList.add('display-none');
+    displayMainMenu.classList.add('.menu-color')
+});
 
 const gridBoxes = document.querySelectorAll('.grid-box');
 
@@ -18,12 +18,12 @@ const laserDeathZone = [
     0, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300
 ];
 
-const screenTopZone = [
-    0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
-];
-const screenBottomZone = [
-    300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315
-];
+// const screenTopZone = [
+//     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
+// ];
+// const screenBottomZone = [
+//     300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315
+// ];
 
 const enemies = [
     26, 28, 30,
@@ -39,13 +39,13 @@ laserDeathZone.forEach((zone) => {
     gridBoxes[zone].classList.add('laser-death-zone');
 });
 
-screenTopZone.forEach((zone) => {
-    gridBoxes[zone].classList.add('screen-top-zone');
-});
+// screenTopZone.forEach((zone) => {
+//     gridBoxes[zone].classList.add('screen-top-zone');
+// });
 
-screenBottomZone.forEach((zone) => {
-    gridBoxes[zone].classList.add('screen-bottom-zone');
-});
+// screenBottomZone.forEach((zone) => {
+//     gridBoxes[zone].classList.add('screen-bottom-zone');
+// });
 
 // ENDGAME ZONE //
 const endGameZone = [24, 49, 74, 99, 124, 149, 174, 199, 224, 249, 274, 299, 324];
