@@ -1,23 +1,16 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  font-family: 'Oxanium', cursive;
+  box-sizing: border-box;
+  font-family: "Oxanium", cursive;
 }
 
 body {
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background-color: #05121f;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
 }
 
 .start-background {
@@ -26,214 +19,59 @@ body {
   width: 100%;
   background-color: black;
   opacity: 0.8;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .display-none {
   display: none;
 }
 
-.left-side {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: (1fr)[9];
-      grid-template-rows: repeat(9, 1fr);
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-items: center;
-  height: 100%;
-  width: 240px;
-}
-
-.left-btns {
-  position: relative;
-  height: 60px;
-  width: 140px;
-  border-radius: 10px;
-  margin: 15px 0;
-  background-color: darkgray;
-  color: white;
-  border: 3px solid #9e9c9c;
-}
-
-.power-btn {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2 / 4;
-  -ms-grid-row: 2;
-  grid-row: 2;
-  text-align: center;
-  line-height: 60px;
-  -webkit-box-shadow: 2px 2px #272626;
-          box-shadow: 2px 2px #272626;
-}
-
-.scoreboard {
-  position: relative;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2 / 4;
-  -ms-grid-row: 3;
-  grid-row: 3;
-  background-color: #1254ce;
-  border: 3px solid #6e6c6c;
-  border-top: 3px solid black;
-  border-left: 3px solid black;
-  border-radius: 0%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-}
-
-.scoreboard span {
+.start-game {
   position: absolute;
+  font-size: 70px;
+  color: white;
 }
 
-.scoreboard div {
-  height: 10px;
-  width: 10px;
-  border: 1px solid #f1f156;
-  opacity: 0.3;
+.menu {
+  display: flex;
+  flex-direction: column;
+  margin-right: 50px;
 }
 
-.space-btn {
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2 / 4;
-  -ms-grid-row: 7;
-  grid-row: 7;
-  background-color: #b32626;
-  border-color: darkred;
-  -webkit-box-shadow: 2px 2px darkred;
-          box-shadow: 2px 2px darkred;
-  text-align: center;
-  line-height: 60px;
-}
-
-.right-side {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
-  -ms-grid-rows: (1fr)[9];
-      grid-template-rows: repeat(9, 1fr);
-  height: 100%;
-  width: 240px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  justify-items: center;
-}
-
-.right-side .restart-btn {
+.main-menu {
+  position: relative;
   height: 60px;
   width: 140px;
+  border: 5px solid;
   border-radius: 10px;
-  background-color: darkgray;
+  text-align: center;
+  line-height: 50px;
+  margin: 15px 0;
+}
+
+.menu-color {
   color: white;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-column: 2 / 4;
-  -ms-grid-row: 2;
-  grid-row: 2;
-  text-align: center;
-  line-height: 60px;
-  border: 3px solid #9e9c9c;
-  -webkit-box-shadow: 2px 2px #272626;
-          box-shadow: 2px 2px #272626;
-}
-
-.right-side .up-btn {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  -ms-grid-column: 3;
-  grid-column: 3;
-  -ms-grid-row: 5;
-  grid-row: 5;
-  background-color: #b32626;
-  border: 2px solid darkred;
-  -webkit-box-shadow: 1px 1px;
-          box-shadow: 1px 1px;
-  text-align: center;
-  line-height: 50px;
-}
-
-.right-side .down-btn {
-  height: 50px;
-  width: 50px;
-  border-radius: 50%;
-  -ms-grid-column: 2;
-  grid-column: 2;
-  -ms-grid-row: 6;
-  grid-row: 6;
-  background-color: #b32626;
-  border: 2px solid darkred;
-  -webkit-box-shadow: 1px 1px;
-          box-shadow: 1px 1px;
-  text-align: center;
-  line-height: 50px;
+  border-color: white;
 }
 
 .device {
-  height: 550px;
-  width: 1500px;
+  height: 800px;
+  width: 1400px;
   background-color: lightgrey;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-radius: 50px;
-  border: 5px solid white;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
-  -webkit-box-shadow: 10px 10px darkgrey;
-          box-shadow: 10px 10px darkgrey;
 }
 
 .game-container {
   height: 520px;
   width: 1002px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  flex-wrap: wrap;
+  align-items: center;
   border: 5px solid white;
   border-radius: 25px;
-  -webkit-box-shadow: 10px 10px lightgrey;
-          box-shadow: 10px 10px lightgrey;
-  -webkit-box-sizing: content-box;
-          box-sizing: content-box;
+  box-shadow: 10px 10px lightgrey;
+  box-sizing: content-box;
   background-image: url("../media/space_background2.png");
   background-size: cover;
 }
@@ -249,12 +87,8 @@ body {
 }
 
 .hero {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   background-image: url("../media/hero2.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -266,4 +100,22 @@ body {
   border-top: 2px solid red;
   border-bottom: 2px solid red;
 }
-/*# sourceMappingURL=styles.css.map */
+
+@media only screen and (min-width: 1300px) {
+  body {
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
+
+  .menu {
+    flex-direction: row;
+  }
+  .menu .main-menu {
+    height: 100px;
+    width: 200px;
+    line-height: 100px;
+    margin: 0 100px;
+    font-size: 20px;
+    border-radius: 25px;
+  }
+}
