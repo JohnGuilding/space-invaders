@@ -41,12 +41,6 @@ body {
   display: none;
 }
 
-.start-game {
-  position: absolute;
-  font-size: 70px;
-  color: white;
-}
-
 .left-side {
   display: -ms-grid;
   display: grid;
@@ -70,6 +64,7 @@ body {
   margin: 15px 0;
   background-color: darkgray;
   color: white;
+  border: 3px solid #9e9c9c;
 }
 
 .power-btn {
@@ -78,6 +73,10 @@ body {
   grid-column: 2 / 4;
   -ms-grid-row: 2;
   grid-row: 2;
+  text-align: center;
+  line-height: 60px;
+  -webkit-box-shadow: 2px 2px #272626;
+          box-shadow: 2px 2px #272626;
 }
 
 .scoreboard {
@@ -89,6 +88,8 @@ body {
   grid-row: 3;
   background-color: #1254ce;
   border: 3px solid #6e6c6c;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
   border-radius: 0%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -126,6 +127,8 @@ body {
   border-color: darkred;
   -webkit-box-shadow: 2px 2px darkred;
           box-shadow: 2px 2px darkred;
+  text-align: center;
+  line-height: 60px;
 }
 
 .right-side {
@@ -154,6 +157,11 @@ body {
   grid-column: 2 / 4;
   -ms-grid-row: 2;
   grid-row: 2;
+  text-align: center;
+  line-height: 60px;
+  border: 3px solid #9e9c9c;
+  -webkit-box-shadow: 2px 2px #272626;
+          box-shadow: 2px 2px #272626;
 }
 
 .right-side .up-btn {
@@ -165,9 +173,11 @@ body {
   -ms-grid-row: 5;
   grid-row: 5;
   background-color: #b32626;
-  border-color: darkred;
+  border: 2px solid darkred;
   -webkit-box-shadow: 1px 1px;
           box-shadow: 1px 1px;
+  text-align: center;
+  line-height: 50px;
 }
 
 .right-side .down-btn {
@@ -179,9 +189,11 @@ body {
   -ms-grid-row: 6;
   grid-row: 6;
   background-color: #b32626;
-  border-color: darkred;
+  border: 2px solid darkred;
   -webkit-box-shadow: 1px 1px;
           box-shadow: 1px 1px;
+  text-align: center;
+  line-height: 50px;
 }
 
 .device {

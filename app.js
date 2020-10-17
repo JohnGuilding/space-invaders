@@ -1,14 +1,14 @@
 const startBackground = document.querySelector('.start-background');
 const startGame = document.querySelector('.start-game');
 const displayMainMenu = document.querySelectorAll('.main-menu');
+const powerBtn = document.querySelector('.power-btn')
 
 document.addEventListener('keyup', () => {
-    // startBackground.classList.add('display-none');
+    startBackground.classList.add('display-none');
     // startGame.classList.add('display-none');
-    displayMainMenu.forEach(element => {
-        element.classList.add('menu-color');
-    });
+});
 
+powerBtn.addEventListener('click', () => {
 
     // MOVE ENEMIES //
     let enemyId;

@@ -29,12 +29,12 @@ body {
     display: none;
 }
 
-.start-game {
-    position: absolute;
-    font-size: 70px;
-    color: white;
-}
-// MENU, REFRESH BTN AND SCOREBOARD //
+// .start-game {
+//     position: absolute;
+//     font-size: 70px;
+//     color: white;
+// }
+// POWER, SCOREBOARD AND FIRE LAZER BTN //
 
 // LEFT SIDE //
 .left-side {
@@ -55,17 +55,19 @@ body {
     position: relative;
     height: 60px;
     width: 140px;
-    // border: 5px solid;
     border-radius: 10px;
     margin: 15px 0;
     background-color: darkgray;
     color: white;
-    // border-color: rgb(119, 119, 119);
+    border: 3px solid rgb(158, 156, 156);
 }
 
 .power-btn {
     grid-column: 2 / 4;
     grid-row: 2;
+    text-align: center;
+    line-height: 60px;
+    box-shadow: 2px 2px rgb(39, 38, 38);
 }
 
 .scoreboard {
@@ -74,6 +76,8 @@ body {
     grid-row: 3;
     background-color: rgb(18, 84, 206);
     border: 3px solid rgb(110, 108, 108);
+    border-top: 3px solid black;
+    border-left: 3px solid black;
     border-radius: 0%;
     display: flex;
     flex-wrap: wrap;
@@ -103,6 +107,8 @@ body {
     background-color: rgb(179, 38, 38);
     border-color: darkred;
     box-shadow: 2px 2px darkred;
+    text-align: center;
+    line-height: 60px;
 }
 
 
@@ -116,6 +122,7 @@ body {
     width: 240px;
     align-items: center;
     justify-items: center;
+    
 
     .restart-btn {
         height: 60px;
@@ -125,6 +132,10 @@ body {
         color: white;
         grid-column: 2 / 4;
         grid-row: 2;
+        text-align: center;
+        line-height: 60px;
+        border: 3px solid rgb(158, 156, 156);
+        box-shadow: 2px 2px rgb(39, 38, 38);
     }
 
     .up-btn {
@@ -134,8 +145,10 @@ body {
         grid-column: 3;
         grid-row: 5;
         background-color: rgb(179, 38, 38);
-        border-color: darkred;
+        border: 2px solid darkred;
         box-shadow: 1px 1px;
+        text-align: center;
+        line-height: 50px;
     }
     
     .down-btn {
@@ -145,8 +158,10 @@ body {
         grid-column: 2;
         grid-row: 6;
         background-color: rgb(179, 38, 38);
-        border-color: darkred;
+        border: 2px solid darkred;
         box-shadow: 1px 1px;
+        text-align: center;
+        line-height: 50px;
     }
 }
 
