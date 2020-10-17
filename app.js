@@ -1,11 +1,50 @@
 const startBackground = document.querySelector('.start-background');
 const startGame = document.querySelector('.start-game');
-const displayMainMenu = document.querySelector('.main-menu');
+const displayMainMenu = document.querySelectorAll('.main-menu');
 
 document.addEventListener('keyup', () => {
-    startBackground.classList.add('display-none');
-    startGame.classList.add('display-none');
-    displayMainMenu.classList.add('.menu-color')
+    // startBackground.classList.add('display-none');
+    // startGame.classList.add('display-none');
+    displayMainMenu.forEach(element => {
+        element.classList.add('menu-color');
+    });
+
+
+    // MOVE ENEMIES //
+    let enemyId;
+
+    const moveEnemies = () => {
+
+        // enemies.forEach((enemy) => {
+        //     if (gridBoxes[enemy].classList.contains('screen-top-zone')) {
+        //         direction === 1;
+        //     // } else if (direction === 1) {
+        //     }
+        // });
+        
+        for (let i = 0; i <= enemies.length - 1; i++) {
+            gridBoxes[enemies[i]].classList.remove('enemy');
+        }
+
+        for (let i = 0; i <= enemies.length - 1; i++) {
+            enemies[i] += direction;
+        }
+
+        for (let i = 0; i <= enemies.length - 1; i++) {
+            if (!enemiesKilled.includes(i)){
+                gridBoxes[enemies[i]].classList.add('enemy');
+            }
+        }
+
+        enemies.forEach((enemy) => {
+            if (gridBoxes[enemy].classList.contains('end-game-zone')) {
+                clearInterval(enemyId);
+            }
+        });
+    }
+
+    enemyId = setInterval(moveEnemies, 500);
+
 });
 
 const gridBoxes = document.querySelectorAll('.grid-box');
@@ -93,40 +132,9 @@ document.addEventListener('keydown', moveHero);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-// MOVE ENEMIES //
-let enemyId;
 
-const moveEnemies = () => {
 
-    // enemies.forEach((enemy) => {
-    //     if (gridBoxes[enemy].classList.contains('screen-top-zone')) {
-    //         direction === 1;
-    //     // } else if (direction === 1) {
-    //     }
-    // });
-    
-    for (let i = 0; i <= enemies.length - 1; i++) {
-        gridBoxes[enemies[i]].classList.remove('enemy');
-    }
 
-    for (let i = 0; i <= enemies.length - 1; i++) {
-        enemies[i] += direction;
-    }
-
-    for (let i = 0; i <= enemies.length - 1; i++) {
-        if (!enemiesKilled.includes(i)){
-            gridBoxes[enemies[i]].classList.add('enemy');
-        }
-    }
-
-    enemies.forEach((enemy) => {
-        if (gridBoxes[enemy].classList.contains('end-game-zone')) {
-            clearInterval(enemyId);
-        }
-    });
-}
-
-enemyId = setInterval(moveEnemies, 500);
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
