@@ -38,10 +38,6 @@ body {
 
 // LEFT SIDE //
 .left-side {
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: space-evenly;
-    // align-items: center;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(9, 1fr);
