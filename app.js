@@ -1,14 +1,14 @@
-const startBackground = document.querySelector('.start-background');
+const startScreen = document.querySelector('.start-screen');
 const startGame = document.querySelector('.start-game');
-const displayMainMenu = document.querySelectorAll('.main-menu');
-const powerBtn = document.querySelector('.power-btn')
+const powerBtn = document.querySelector('.fa-power-off')
 
-document.addEventListener('keyup', () => {
-    startBackground.classList.add('display-none');
-    // startGame.classList.add('display-none');
-});
 
+
+// EVENT LISTENER TO START GAME //
 powerBtn.addEventListener('click', () => {
+
+    startScreen.classList.add('display-none');
+    startGame.classList.add('display-none');
 
     // MOVE ENEMIES //
     let enemyId;
@@ -38,9 +38,22 @@ powerBtn.addEventListener('click', () => {
 
         enemies.forEach((enemy) => {
             if (gridBoxes[enemy].classList.contains('end-game-zone')) {
+                // gridBoxes[enemies[i]].classList.remove('enemy');
                 clearInterval(enemyId);
             }
         });
+        // gridBoxes.forEach((zone) => {
+        //     if (gridBoxes[zone].classList.contains('end-game-zone') && gridBoxes[zone].classList.contains('enemy')) {
+        //         // gridBoxes[enemies[i]].classList.remove('enemy');
+        //         clearInterval(enemyId);
+        //     }
+        // });
+        // laserDeathZone.forEach((zone) => {
+        //     if (gridBoxes[zone].classList.contains('enemy')) {
+        //         // gridBoxes[enemies[i]].classList.remove('enemy');
+        //         clearInterval(enemyId);
+        //     }
+        // });
     }
 
     enemyId = setInterval(moveEnemies, 500);
@@ -185,24 +198,3 @@ document.addEventListener('keyup', fireLaser);
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-// function sound(src) {
-//     this.sound = document.createElement("audio");
-//     this.sound.src = src;
-//     this.sound.setAttribute("preload", "auto");
-//     this.sound.setAttribute("controls", "none");
-//     this.sound.style.display = "none";
-//     document.body.appendChild(this.sound);
-//     this.play = function(){
-//         this.sound.play();
-//     }
-//     this.stop = function(){
-//         this.sound.pause();
-//     }
-// }
-
-
-// function startGame() {
-//     myMusic = new sound("./media/background_music.mp3");
-//     myMusic.play();
-// }

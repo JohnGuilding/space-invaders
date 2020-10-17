@@ -13,14 +13,13 @@ body {
     background-color: #05121f;
 }
 
-// START MENU //
-
-.start-screen {
+// start menu
+.start-background {
     position: absolute;
-    height: 520px;
-    width: 1002px;
-    border-radius: 25px;
+    height: 100%;
+    width: 100%;
     background-color: black;
+    opacity: 0.8;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -30,34 +29,11 @@ body {
     display: none;
 }
 
-.start-game {
-    position: absolute;
-    font-size: 40px;
-    color: white;
-    width: 70%;
-    margin: 0 auto;
-
-    li {
-        list-style: none;
-        margin: 40px 0;
-    }
-}
-
-// OUTER DEVICE STYLING //
-
-.device {
-    height: 550px;
-    width: 1500px;
-    background-color: rgb(236, 236, 236);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 50px;
-    border: 5px solid rgb(243, 243, 243);
-    box-sizing: content-box;
-    box-shadow: 7px 7px 0 2px darkgrey;
-}
-
+// .start-game {
+//     position: absolute;
+//     font-size: 70px;
+//     color: white;
+// }
 // POWER, SCOREBOARD AND FIRE LAZER BTN //
 
 // LEFT SIDE //
@@ -76,26 +52,24 @@ body {
     height: 60px;
     width: 140px;
     border-radius: 10px;
+    margin: 15px 0;
     background-color: darkgray;
     color: white;
     border: 3px solid rgb(158, 156, 156);
 }
 
-.fa-power-off {
+.power-btn {
     grid-column: 2 / 4;
     grid-row: 2;
-    font-size: 30px;
-    color: rgb(221, 68, 68);
     text-align: center;
     line-height: 60px;
     box-shadow: 2px 2px rgb(39, 38, 38);
-    cursor: pointer;
 }
 
 .scoreboard {
     position: relative;
     grid-column: 2 / 4;
-    grid-row: 4;
+    grid-row: 3;
     background-color: rgb(18, 84, 206);
     border: 3px solid rgb(110, 108, 108);
     border-top: 3px solid black;
@@ -144,25 +118,23 @@ body {
     width: 240px;
     align-items: center;
     justify-items: center;
-}
+    
 
-    .fa-undo-alt {
+    .restart-btn {
         height: 60px;
         width: 140px;
         border-radius: 10px;
         background-color: darkgray;
-        color: rgb(34, 173, 76);
+        color: white;
         grid-column: 2 / 4;
         grid-row: 2;
-        font-size: 30px;
         text-align: center;
         line-height: 60px;
         border: 3px solid rgb(158, 156, 156);
         box-shadow: 2px 2px rgb(39, 38, 38);
-        cursor: pointer;
     }
 
-    .fa-caret-up {
+    .up-btn {
         height: 50px;
         width: 50px;
         border-radius: 50%;
@@ -171,13 +143,11 @@ body {
         background-color: rgb(179, 38, 38);
         border: 2px solid darkred;
         box-shadow: 1px 1px;
-        color: rgb(109, 35, 35);
-        font-size: 30px;
         text-align: center;
-        line-height: 45px;
+        line-height: 50px;
     }
     
-    .fa-caret-down {
+    .down-btn {
         height: 50px;
         width: 50px;
         border-radius: 50%;
@@ -186,14 +156,26 @@ body {
         background-color: rgb(179, 38, 38);
         border: 2px solid darkred;
         box-shadow: 1px 1px;
-        color: rgb(109, 35, 35);
-        font-size: 30px;
         text-align: center;
-        line-height: 45px;
+        line-height: 50px;
     }
-
+}
 
 // MAIN GAME CONTAINER STYLES //
+
+.device {
+    height: 550px;
+    width: 1500px;
+    background-color: lightgrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 5px solid white;
+    box-sizing: content-box;
+    box-shadow: 10px 10px darkgrey;
+
+}
 
 .game-container {
     height: 520px;
@@ -201,14 +183,12 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    border: 5px solid rgb(83, 83, 83);
+    border: 5px solid white;
     border-radius: 25px;
+    box-shadow: 10px 10px lightgrey;
     box-sizing: content-box;
     background-image: url('../media/space_background2.png');
     background-size: cover;
-    border-bottom: 5px solid grey;
-    border-right: 5px solid grey;
-    box-sizing: content-box;
 }
 
 .grid-box {
@@ -220,7 +200,7 @@ body {
 .enemy {
     background-image: url('../media/enemy2.png');
     background-size: contain;
-    border: 3px solid red;
+    // border: 3px solid red;
 }
 
 .hero {
@@ -247,57 +227,24 @@ body {
 //     background-color: purple;
 // }
 
-.end-game-zone {
-    background-color: purple;
-}
+// .end-game-zone {
+//     background-color: purple;
+// }
 
 ///////////////////
 // MEDIA QUERIES //
 ///////////////////
 
-@media only screen and (max-width: 1550px) {
-    .device {
-        height: 550px;
-        width: 1200px;
-    }
+@media only screen and (min-width: 1300px) {
+    // .menu {
 
-    // POWER, SCOREBOARD AND FIRE LAZER BTN //
-
-    // LEFT SIDE //
-    .left-side {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-evenly;
-        height: 100%;
-        width: 90px;
-    }
-
-    .left-btns {
-        width: 70px;
-    }
-
-    .space-btn {
-        font-size: 20px;
-        line-height: 25px;
-    }
-
-    // RIGHT SIDE //
-    .right-side {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        width: 90px;
-        justify-content: space-evenly;
-    }
-
-    .fa-undo-alt {
-        width: 70px;
-    }
-
-    .scoreboard {
-
-        div {
-            border: 0px solid white;
-        }
-    }
+    //     .main-menu {
+    //         height: 100px;
+    //         width: 200px;
+    //         line-height: 100px;
+    //         margin: 0 100px;
+    //         font-size: 20px;
+    //         border-radius: 25px;
+    //     }
+    // }
 }

@@ -4,6 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200;400;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/429aea90b5.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./styles/styles.css">
     <title>SPACE INVADERS</title>
 </head>
@@ -17,7 +18,7 @@
 
     <div class="device">
         <section class="left-side">
-            <div class="power-btn left-btns">Power</div>
+            <i class="left-btns fas fa-power-off"></i>
             <div class="scoreboard left-btns">
                 <span>Score:</span>
                 <div></div>
@@ -105,10 +106,15 @@
                 <div></div>
                 <div></div>
             </div>
-            <div class="space-btn left-btns">S</div>
+            <div class="space-btn left-btns">Fire Laser</div>
         </section>
         <main class="game-container">
-            <section class="start-screen"></section>
+            <section class="start-screen">
+                <h1 class="start-game">
+                    <li>Use The Up, Down And Space Keys To Ward Off The Relentless Alien Attack</li>
+                    <li>Press The Power Button To Start The Invasion.</li>
+                </h1>
+            </section>
             <div class="grid-box"></div>
             <div class="grid-box"></div>
             <div class="grid-box"></div>
@@ -436,9 +442,9 @@
             <div class="grid-box"></div>
         </main>
         <section class="right-side">
-            <div class="restart-btn right-btns">Restart Game</div>
-            <div class="up-btn right-btns">U</div>
-            <div class="down-btn right-btns">D</div>
+            <i class="fas fa-undo-alt"></i>
+            <i class="fas fa-caret-up"></i>
+            <i class="fas fa-caret-down"></i>
         </section>
     </div>
 
