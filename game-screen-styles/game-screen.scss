@@ -1,0 +1,87 @@
+// START MENU //
+
+.start-screen {
+    position: absolute;
+    height: 520px;
+    width: 1002px;
+    border-radius: 25px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.display-none {
+    display: none;
+}
+
+.start-game {
+    position: absolute;
+    font-size: 40px;
+    color: white;
+    width: 70%;
+    margin: 0 auto;
+
+    li {
+        list-style: none;
+        margin: 40px 0;
+    }
+}
+
+// MAIN GAME CONTAINER STYLES //
+
+.game-container {
+    height: 520px;
+    width: 1002px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    border: 5px solid rgb(83, 83, 83);
+    border-radius: 25px;
+    box-sizing: content-box;
+    background-image: url('../media/space_background2.png');
+    background-size: cover;
+    border-bottom: 5px solid grey;
+    border-right: 5px solid grey;
+    box-sizing: content-box;
+}
+
+.grid-box {
+    height: 40px;
+    width: 40px;
+    // border: 1px solid white;
+}  
+
+.enemy {
+    background-image: url('../media/enemy2.png');
+    background-size: contain;
+    // border: 3px solid red;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    background-image: url('../media/hero2.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    // border: 3px solid green;
+}
+
+.laser {
+    height: 25px;
+    width: 40px;
+    border-top: 2px solid red;
+    border-bottom: 2px solid red;
+}
+
+// .screen-top-zone {
+//     background-color: white;
+// }
+
+// .screen-bottom-zone {
+//     background-color: purple;
+// }
+
+// .end-game-zone {
+//     background-color: purple;
+// }

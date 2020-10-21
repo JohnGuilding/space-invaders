@@ -1,0 +1,232 @@
+.device {
+  height: 550px;
+  width: 1500px;
+  background-color: #ececec;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 50px;
+  border: 5px solid #f3f3f3;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+  -webkit-box-shadow: 7px 7px 0 2px darkgrey;
+          box-shadow: 7px 7px 0 2px darkgrey;
+}
+
+.left-side {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[9];
+      grid-template-rows: repeat(9, 1fr);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+  height: 100%;
+  width: 240px;
+}
+
+.left-btns {
+  position: relative;
+  height: 60px;
+  width: 140px;
+  border-radius: 10px;
+  background-color: darkgray;
+  color: white;
+  border: 3px solid #9e9c9c;
+}
+
+.fa-power-off {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  font-size: 30px;
+  color: #dd4444;
+  text-align: center;
+  line-height: 60px;
+  -webkit-box-shadow: 2px 2px #272626;
+          box-shadow: 2px 2px #272626;
+  cursor: pointer;
+}
+
+.scoreboard {
+  position: relative;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+  -ms-grid-row: 4;
+  grid-row: 4;
+  background-color: #1254ce;
+  border: 3px solid #6e6c6c;
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+  border-radius: 0%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+
+.scoreboard span {
+  position: absolute;
+}
+
+.scoreboard div {
+  height: 10px;
+  width: 10px;
+  border: 1px solid #f1f156;
+  opacity: 0.3;
+}
+
+.space-btn {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+  -ms-grid-row: 7;
+  grid-row: 7;
+  background-color: #b32626;
+  border-color: darkred;
+  -webkit-box-shadow: 2px 2px darkred;
+          box-shadow: 2px 2px darkred;
+  text-align: center;
+  line-height: 60px;
+}
+
+.right-side {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: (1fr)[9];
+      grid-template-rows: repeat(9, 1fr);
+  height: 100%;
+  width: 240px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  justify-items: center;
+}
+
+.fa-undo-alt {
+  height: 60px;
+  width: 140px;
+  border-radius: 10px;
+  background-color: darkgray;
+  color: #22ad4c;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-column: 2 / 4;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  font-size: 30px;
+  text-align: center;
+  line-height: 60px;
+  border: 3px solid #9e9c9c;
+  -webkit-box-shadow: 2px 2px #272626;
+          box-shadow: 2px 2px #272626;
+  cursor: pointer;
+}
+
+.fa-caret-up {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  -ms-grid-column: 3;
+  grid-column: 3;
+  -ms-grid-row: 5;
+  grid-row: 5;
+  background-color: #b32626;
+  border: 2px solid darkred;
+  -webkit-box-shadow: 1px 1px;
+          box-shadow: 1px 1px;
+  color: #6d2323;
+  font-size: 30px;
+  text-align: center;
+  line-height: 45px;
+}
+
+.fa-caret-down {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  -ms-grid-column: 2;
+  grid-column: 2;
+  -ms-grid-row: 6;
+  grid-row: 6;
+  background-color: #b32626;
+  border: 2px solid darkred;
+  -webkit-box-shadow: 1px 1px;
+          box-shadow: 1px 1px;
+  color: #6d2323;
+  font-size: 30px;
+  text-align: center;
+  line-height: 45px;
+}
+
+@media only screen and (max-width: 1550px) {
+  .device {
+    height: 550px;
+    width: 1200px;
+  }
+  .left-side {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    height: 100%;
+    width: 90px;
+  }
+  .left-btns {
+    width: 70px;
+  }
+  .space-btn {
+    font-size: 20px;
+    line-height: 25px;
+  }
+  .right-side {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 100%;
+    width: 90px;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+  .fa-undo-alt {
+    width: 70px;
+  }
+  .scoreboard div {
+    border: 0px solid white;
+  }
+}
+/*# sourceMappingURL=outer-device.css.map */
