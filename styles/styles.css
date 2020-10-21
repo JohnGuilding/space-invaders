@@ -66,19 +66,22 @@ body {
   border: 3px solid #9e9c9c;
 }
 
-.fa-power-off {
+.power-btn {
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-column: 2 / 4;
   -ms-grid-row: 2;
   grid-row: 2;
-  font-size: 30px;
+  cursor: pointer;
+}
+
+.power-btn i {
   color: #dd4444;
+  font-size: 30px;
   text-align: center;
-  line-height: 60px;
+  line-height: 50px;
   -webkit-box-shadow: 2px 2px #272626;
           box-shadow: 2px 2px #272626;
-  cursor: pointer;
 }
 
 .scoreboard {
@@ -148,27 +151,30 @@ body {
   justify-items: center;
 }
 
-.fa-undo-alt {
+.restart {
   height: 60px;
   width: 140px;
   border-radius: 10px;
   background-color: darkgray;
-  color: #22ad4c;
   -ms-grid-column: 2;
   -ms-grid-column-span: 2;
   grid-column: 2 / 4;
   -ms-grid-row: 2;
   grid-row: 2;
-  font-size: 30px;
-  text-align: center;
-  line-height: 60px;
   border: 3px solid #9e9c9c;
   -webkit-box-shadow: 2px 2px #272626;
           box-shadow: 2px 2px #272626;
+  text-align: center;
   cursor: pointer;
 }
 
-.fa-caret-up {
+.restart i {
+  line-height: 50px;
+  color: #22ad4c;
+  font-size: 30px;
+}
+
+.up {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -186,7 +192,11 @@ body {
   line-height: 45px;
 }
 
-.fa-caret-down {
+.up i {
+  line-height: 45px;
+}
+
+.down {
   height: 50px;
   width: 50px;
   border-radius: 50%;
@@ -201,6 +211,10 @@ body {
   color: #6d2323;
   font-size: 30px;
   text-align: center;
+  line-height: 45px;
+}
+
+.down i {
   line-height: 45px;
 }
 
@@ -244,7 +258,7 @@ body {
         -ms-flex-pack: space-evenly;
             justify-content: space-evenly;
   }
-  .fa-undo-alt {
+  .restart {
     width: 70px;
   }
   .scoreboard div {

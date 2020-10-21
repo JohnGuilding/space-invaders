@@ -1,3 +1,21 @@
+// GLOBAL STYLES //
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oxanium', cursive;
+}
+
+body {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #05121f;
+    // background-color: green;
+}
+
 // OUTER DEVICE STYLING //
 
 .device {
@@ -22,6 +40,9 @@
     grid-template-rows: repeat(9, 1fr);
     align-items: center;
     justify-items: center;
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
     height: 100%;
     width: 240px;
 }
@@ -36,15 +57,18 @@
     border: 3px solid rgb(158, 156, 156);
 }
 
-.fa-power-off {
+.power-btn {
     grid-column: 2 / 4;
     grid-row: 2;
-    font-size: 30px;
-    color: rgb(221, 68, 68);
-    text-align: center;
-    line-height: 60px;
-    box-shadow: 2px 2px rgb(39, 38, 38);
     cursor: pointer;
+
+    i {
+        color: rgb(221, 68, 68);
+        font-size: 30px;
+        text-align: center;
+        line-height: 50px;
+        box-shadow: 2px 2px rgb(39, 38, 38);
+    }
 }
 
 .scoreboard {
@@ -101,23 +125,26 @@
     justify-items: center;
 }
 
-    .fa-undo-alt {
+    .restart {
         height: 60px;
         width: 140px;
         border-radius: 10px;
         background-color: darkgray;
-        color: rgb(34, 173, 76);
         grid-column: 2 / 4;
         grid-row: 2;
-        font-size: 30px;
-        text-align: center;
-        line-height: 60px;
         border: 3px solid rgb(158, 156, 156);
         box-shadow: 2px 2px rgb(39, 38, 38);
+        text-align: center;
         cursor: pointer;
+        
+        i {
+            line-height: 50px;
+            color: rgb(34, 173, 76);
+            font-size: 30px;
+        }
     }
 
-    .fa-caret-up {
+    .up {
         height: 50px;
         width: 50px;
         border-radius: 50%;
@@ -130,9 +157,13 @@
         font-size: 30px;
         text-align: center;
         line-height: 45px;
+
+        i {
+            line-height: 45px;
+        }
     }
     
-    .fa-caret-down {
+    .down {
         height: 50px;
         width: 50px;
         border-radius: 50%;
@@ -145,6 +176,10 @@
         font-size: 30px;
         text-align: center;
         line-height: 45px;
+        
+        i {
+            line-height: 45px;
+        }
     }
 
 ///////////////////
@@ -186,7 +221,7 @@
         justify-content: space-evenly;
     }
 
-    .fa-undo-alt {
+    .restart {
         width: 70px;
     }
 

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css2?family=Oxanium:wght@200;400;800&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/429aea90b5.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./global-styles/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <title>SPACE INVADERS</title>
 </head>
 <body>
@@ -18,7 +18,7 @@
 
     <div class="device">
         <section class="left-side">
-            <i class="left-btns fas fa-power-off" onclick="begin()"></i>
+            <div class="power-btn"><i class="left-btns fas fa-power-off" onclick="begin()"></i></div>
             <div class="scoreboard left-btns">
                 <span class="score">Score:</span>
                 <div></div>
@@ -442,9 +442,15 @@
             <div class="grid-box"></div>
         </main>
         <section class="right-side">
-            <i class="fas fa-undo-alt" onclick="gameOver()"></i>
-            <i class="fas fa-caret-up"></i>
-            <i class="fas fa-caret-down"></i>
+            <div class="restart">
+                <i class="fas fa-undo-alt" onclick="gameOver()"></i>
+            </div>
+            <div class="up">
+                <i class="fas fa-caret-up"></i>
+            </div>
+            <div class="down">
+                <i class="fas fa-caret-down"></i>
+            </div>
         </section>
     </div>
 

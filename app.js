@@ -8,6 +8,8 @@ let heroIndex = 174;
 let direction = 1;
 let enemiesKilled = [];
 
+let wildCard = true;
+
 // ADDING ENEMIES TO GRID //
 const enemies = [
     26, 28, 30,
@@ -61,9 +63,11 @@ const begin = () => {
     // MOVE ENEMIES //
     //////////////////
 
-    let enemyId;
+    // global variable //
+    window.enemyId;
 
     const moveEnemies = () => {
+
         
         for (let i = 0; i <= enemies.length - 1; i++) {
             gridBoxes[enemies[i]].classList.remove('enemy');
@@ -81,12 +85,12 @@ const begin = () => {
 
         endGameZone.forEach((zone) => {
             if (gridBoxes[zone].classList.contains('enemy')) {
-                clearInterval(enemyId);
+                clearInterval(window.enemyId);
             }
         });
     }
 
-    enemyId = setInterval(moveEnemies, 500);
+        window.enemyId = setInterval(moveEnemies, 500);    
 
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -165,24 +169,38 @@ const begin = () => {
 
 } ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+const gameOver = () => {
+    console.log(enemiesKilled);
+    enemiesKilled = [];
 
-// const gameOver = () => {
+    console.log('game over');
+    console.log(enemiesKilled);
 
-//     enemiesKilled = [];
 
-//     // ADDING ENEMIES TO GRID //
-//     // const enemies = [
-//     //     26, 28, 30,
-//     //     76, 78, 80,
-//     //     126, 128, 130,
-//     //     176, 178, 180,
-//     //     226, 228, 230,
-//     //     276, 278, 280,
-//     // ];
+    clearInterval(window.enemyID);
 
-//     enemies.forEach((enemy) => {
-//         gridBoxes[enemy].classList.remove('enemy')
-//     });
+    gridBoxes.forEach(gridBox => {
+        if (gridBox.classList.contains('enemy')) {
+            gridBox.classList.remove('enemy');
+        }
+    });
+
+   // ADDING ENEMIES TO GRID //
+    const enemies = [
+        26, 28, 30,
+        76, 78, 80,
+        126, 128, 130,
+        176, 178, 180,
+        226, 228, 230,
+        276, 278, 280,
+    ];
+
+    enemies.forEach((enemy) => {
+        gridBoxes[enemy].classList.add('enemy')
+    });
+}
+
+
 
 
 
