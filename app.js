@@ -1,29 +1,17 @@
 const startScreen = document.querySelector('.start-screen');
 const startGame = document.querySelector('.start-game');
+const endScreen = document.querySelector('.end-screen');
+const gameRestart = document.querySelector('.game-restart');
 const resultDisplay = document.querySelector('.score');
+const result = document.querySelector('.result')
 
 const gridBoxes = document.querySelectorAll('.grid-box');
 
-let heroIndex = 174;
-let direction = 1;
+//  DEFINING VARIABLES TO BE MANIPULATED LATER //
+let heroIndex;
+let direction;
 let enemiesKilled = [];
-
-let wildCard = true;
-
-// ADDING ENEMIES TO GRID //
-const enemies = [
-    26, 28, 30,
-    76, 78, 80,
-    126, 128, 130,
-    176, 178, 180,
-    226, 228, 230,
-    276, 278, 280,
-];
-
-enemies.forEach((enemy) => {
-    gridBoxes[enemy].classList.add('enemy')
-});
-
+let enemies = [];
 
 // ADDING ZONE WHERE LASER STOPS //
 const laserDeathZone = [
@@ -34,7 +22,6 @@ laserDeathZone.forEach((zone) => {
     gridBoxes[zone].classList.add('laser-death-zone');
 });
 
-
 // ENDGAME ZONE //
 const endGameZone = [24, 49, 74, 99, 124, 149, 174, 199, 224, 249, 274, 299, 324];
 
@@ -42,19 +29,31 @@ endGameZone.forEach((zone) => {
     gridBoxes[zone].classList.add('end-game-zone');
 });
 
+//////////////////////////////////////////////////////////////////////////////
 
-// ADDING HERO TO GRID 
-gridBoxes[heroIndex].classList.add('hero');
+// START GAME //
 
+const start = () => {
 
-/////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    heroIndex = 174;
+    direction = 1;
+    enemiesKilled = [];
 
+    // ADDING ENEMIES TO GRID //
+    enemies = [
+        26, 28, 30,
+        76, 78, 80,
+        126, 128, 130,
+        176, 178, 180,
+        226, 228, 230,
+        276, 278, 280,
+    ];
 
-////////////////////////////////////////////////
-///////// EVENT LISTENER TO START GAME /////////
-////////////////////////////////////////////////
-
-const begin = () => {
+    enemies.forEach((enemy) => {
+        gridBoxes[enemy].classList.add('enemy')
+    });
+    // ADDING HERO TO GRID 
+    gridBoxes[heroIndex].classList.add('hero');
 
     startScreen.classList.add('display-none');
     startGame.classList.add('display-none');
@@ -86,135 +85,124 @@ const begin = () => {
         endGameZone.forEach((zone) => {
             if (gridBoxes[zone].classList.contains('enemy')) {
                 clearInterval(window.enemyId);
+                endScreen.classList.add('display');
+                gameRestart.classList.add('display-text');
+                result.textContent = enemiesKilled.length;
             }
         });
     }
+    window.enemyId = setInterval(moveEnemies, 500);    
+}
 
-        window.enemyId = setInterval(moveEnemies, 500);    
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+// MOVING THE HERO WITH KEYBOARD //
+const moveHero = (e) => {
+    gridBoxes[heroIndex].classList.remove('hero');
+    switch(e.keyCode) {
 
-    // MOVING THE HERO WITH KEYBOARD //
-    const moveHero = (e) => {
-        gridBoxes[heroIndex].classList.remove('hero');
-        switch(e.keyCode) {
+        case 38:
+            if (heroIndex >= 25) {
+                heroIndex -= 25;
+            }
+            break;
 
-            case 38:
-                if (heroIndex >= 25) {
-                    heroIndex -= 25;
-                }
-                break;
-
-            case 40:
-                if (heroIndex < 324) {
-                    heroIndex += 25;   
-                }
-                break;
-        }
-        gridBoxes[heroIndex].classList.add('hero')
+        case 40:
+            if (heroIndex < 324) {
+                heroIndex += 25;   
+            }
+            break;
     }
+    gridBoxes[heroIndex].classList.add('hero')
+}
 
-    document.addEventListener('keydown', moveHero);
+document.addEventListener('keydown', moveHero);
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// FIRE LAZER FUNCTION //
+const fireLaser = (e) => {
 
+// SETS LASER INDEX TO HERO INDEX SO LASER ALWAYS STARTS FROM HERO LOCATION
+let laserIndex = heroIndex;
 
-    // FIRE LAZER FUNCTION //
-    const fireLaser = (e) => {
+// SETS VARIABLE SO CLEAR INTERVAL CAN BE CALLED TO STOP SET INTERVAL
+let laserId;
 
-    // SETS LASER INDEX TO HERO INDEX SO LASER ALWAYS STARTS FROM HERO LOCATION
-    let laserIndex = heroIndex;
+    // MOVES LADER ONE BOX ACCROSS
+    const moveLaser = () => {
+        gridBoxes[laserIndex].classList.remove('laser');
+        laserIndex -= 1;
+        gridBoxes[laserIndex].classList.add('laser');
 
-    // SETS VARIABLE SO CLEAR INTERVAL CAN BE CALLED TO STOP SET INTERVAL
-    let laserId;
-
-        // MOVES LADER ONE BOX ACCROSS
-        const moveLaser = () => {
+        if (gridBoxes[laserIndex].classList.contains('enemy')) {
+            clearInterval(laserId)
             gridBoxes[laserIndex].classList.remove('laser');
-            laserIndex -= 1;
-            gridBoxes[laserIndex].classList.add('laser');
+            gridBoxes[laserIndex].classList.remove('enemy');
 
-            if (gridBoxes[laserIndex].classList.contains('enemy')) {
-                clearInterval(laserId)
-                gridBoxes[laserIndex].classList.remove('laser');
-                gridBoxes[laserIndex].classList.remove('enemy');
-
-                // SCORE //
-                const enemyKilled = enemies.indexOf(laserIndex);
-                enemiesKilled.push(enemyKilled);
-                resultDisplay.textContent = `Score: ${enemiesKilled.length}`;
-            }
-        
-            // REMOVE LASER IF MISSES TARGET //
-            if (gridBoxes[laserIndex].classList.contains('laser-death-zone')) {
-                clearInterval(laserId);
-                gridBoxes[laserIndex].classList.remove('laser');
-            }
-
+            // SCORE //
+            const enemyKilled = enemies.indexOf(laserIndex);
+            enemiesKilled.push(enemyKilled);
+            resultDisplay.textContent = enemiesKilled.length;
         }
-        
-        // PRESS SPACEBAR TO FIRE LASER //
-        switch(e.keyCode) {
-            case 32:
-                laserId = setInterval(moveLaser, 40);        
-                break;
+    
+        // REMOVE LASER IF MISSES TARGET //
+        if (gridBoxes[laserIndex].classList.contains('laser-death-zone')) {
+            clearInterval(laserId);
+            gridBoxes[laserIndex].classList.remove('laser');
         }
+
     }
+    
+    // PRESS SPACEBAR TO FIRE LASER //
+    switch(e.keyCode) {
+        case 32:
+            laserId = setInterval(moveLaser, 40);        
+            break;
+    }
+}
 
-    // event listener for space bar //
-    document.addEventListener('keyup', fireLaser);
+// event listener for space bar //
+document.addEventListener('keyup', fireLaser);
 
-} ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+// GAME OVER //
 
 const gameOver = () => {
-    console.log(enemiesKilled);
+    direction = 0;
     enemiesKilled = [];
 
-    console.log('game over');
-    console.log(enemiesKilled);
+    clearInterval(window.enemyId);
 
-
-    clearInterval(window.enemyID);
-
+   // REMOVING AND ADDING EMEMIES //
     gridBoxes.forEach(gridBox => {
         if (gridBox.classList.contains('enemy')) {
             gridBox.classList.remove('enemy');
         }
     });
 
-   // ADDING ENEMIES TO GRID //
-    const enemies = [
-        26, 28, 30,
-        76, 78, 80,
-        126, 128, 130,
-        176, 178, 180,
-        226, 228, 230,
-        276, 278, 280,
-    ];
+    enemies = [];
 
-    enemies.forEach((enemy) => {
-        gridBoxes[enemy].classList.add('enemy')
+    // REMOVING HERO AND ADDING IN ORIGINAL POSITION //
+    gridBoxes.forEach(gridBox => {
+        if (gridBox.classList.contains('hero')) {
+            gridBox.classList.remove('hero');
+        }
     });
+
+    heroIndex = null;
+
+    // REMOVING GAMEOVER MESSAGE //
+    endScreen.classList.remove('display');
+    gameRestart.classList.remove('display-text');
+
+    // RESETTING SCORE //
+    resultDisplay.textContent = enemiesKilled.length;
+
+    // STARTING GAME AGAIN //
+    begin();
 }
-
-
-
-
-
-//     console.log('game over');
-//     begin();
-
-// }
-
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ************************************************************************************************************************ //
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-// ************************************************************************************************************************ //
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
 
 // const screenTopZone = [
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15

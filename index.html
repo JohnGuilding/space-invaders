@@ -18,9 +18,9 @@
 
     <div class="device">
         <section class="left-side">
-            <div class="power-btn"><i class="left-btns fas fa-power-off" onclick="begin()"></i></div>
+            <div class="power-btn"><i class="left-btns fas fa-power-off" onclick="start()"></i></div>
             <div class="scoreboard left-btns">
-                <span class="score">Score:</span>
+                <article>Score: <span class="score">0</span></article>
                 <div></div>
                 <div></div>
                 <div></div>
@@ -110,10 +110,16 @@
         </section>
         <main class="game-container">
             <section class="start-screen">
-                <h1 class="start-game">
+                <ul class="start-game">
                     <li>Use The Up, Down And Space Keys To Ward Off The Relentless Alien Attack</li>
-                    <li>Press The Power Button To Start The Invasion.</li>
-                </h1>
+                    <li>Press The Power Button To Start The Invasion</li>
+                </ul>
+            </section>
+            <section class="end-screen">
+                <ul class="game-restart">
+                    <li>Game Over, You Scored <span class="result"></span> Points</li>
+                    <li>Press The Restart Button To Reset The Game</li>
+                </ul>
             </section>
             <div class="grid-box"></div>
             <div class="grid-box"></div>
@@ -442,8 +448,8 @@
             <div class="grid-box"></div>
         </main>
         <section class="right-side">
-            <div class="restart">
-                <i class="fas fa-undo-alt" onclick="gameOver()"></i>
+            <div class="restart" onclick="gameOver()">
+                <i class="fas fa-undo-alt"></i>
             </div>
             <div class="up">
                 <i class="fas fa-caret-up"></i>

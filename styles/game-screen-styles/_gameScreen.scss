@@ -11,10 +11,6 @@
     align-items: center;
 }
 
-.display-none {
-    display: none;
-}
-
 .start-game {
     position: absolute;
     font-size: 40px;
@@ -26,6 +22,46 @@
         list-style: none;
         margin: 40px 0;
     }
+}
+
+// GAME OVER SCREEN //
+
+.end-screen {
+    position: absolute;
+    height: 520px;
+    width: 1002px;
+    border-radius: 25px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.game-restart {
+    position: absolute;
+    font-size: 40px;
+    text-align: center;
+    color: white;
+    width: 70%;
+    margin: 0 auto;
+
+    li {
+        list-style: none;
+        margin: 40px 0;
+    }
+}
+
+.display-none {
+    display: none;
+}
+
+.display {
+    display: flex;
+}
+
+.display-text {
+    display: inline-block;
 }
 
 // MAIN GAME CONTAINER STYLES //

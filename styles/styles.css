@@ -111,7 +111,7 @@ body {
           box-sizing: content-box;
 }
 
-.scoreboard span {
+.scoreboard article {
   position: absolute;
 }
 
@@ -283,10 +283,6 @@ body {
           align-items: center;
 }
 
-.display-none {
-  display: none;
-}
-
 .start-game {
   position: absolute;
   font-size: 40px;
@@ -298,6 +294,52 @@ body {
 .start-game li {
   list-style: none;
   margin: 40px 0;
+}
+
+.end-screen {
+  position: absolute;
+  height: 520px;
+  width: 1002px;
+  border-radius: 25px;
+  background-color: black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: none;
+}
+
+.game-restart {
+  position: absolute;
+  font-size: 40px;
+  text-align: center;
+  color: white;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.game-restart li {
+  list-style: none;
+  margin: 40px 0;
+}
+
+.display-none {
+  display: none;
+}
+
+.display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.display-text {
+  display: inline-block;
 }
 
 .game-container {
