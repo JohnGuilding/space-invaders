@@ -175,11 +175,11 @@ let laserId;
 // event listener for space bar //
 document.addEventListener('keyup', fireLaser);
 
-if(resultDisplay.textContent == 17) {
-    winScreen.classList.add('display');
-    wonGame.classList.add('display-text');
-    // result.textContent = enemiesKilled.length;
-}
+// if(resultDisplay.textContent == 17) {
+//     winScreen.classList.add('display');
+//     wonGame.classList.add('display-text');
+//     // result.textContent = enemiesKilled.length;
+// }
 //     clearInterval(window.enemyId);
 
 
