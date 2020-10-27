@@ -58,6 +58,7 @@ body {
 }
 
 .power-btn {
+    z-index: 1;
     grid-column: 2 / 4;
     grid-row: 2;
     cursor: pointer;
@@ -69,6 +70,37 @@ body {
         line-height: 50px;
         box-shadow: 2px 2px rgb(39, 38, 38);
     }
+}
+
+.display-none {
+    display: none;
+}
+
+.power-btn-copy {
+    position: relative;
+    height: 60px;
+    width: 140px;
+    border-radius: 10px;
+    background-color: darkgray;
+    color: white;
+    display: none;
+
+    z-index: 1;
+    grid-column: 2 / 4;
+    grid-row: 2;
+    cursor: pointer;
+
+    i {
+        color: rgb(221, 68, 68);
+        font-size: 30px;
+        text-align: center;
+        line-height: 50px;
+        box-shadow: 2px 2px rgb(39, 38, 38);
+    }
+}
+
+.display-none {
+    display: inline;
 }
 
 .scoreboard {
@@ -204,6 +236,10 @@ body {
     }
 
     .left-btns {
+        width: 70px;
+    }
+
+    .power-btn-copy {
         width: 70px;
     }
 

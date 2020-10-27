@@ -1,5 +1,7 @@
 const startScreen = document.querySelector('.start-screen');
 const startGame = document.querySelector('.start-game');
+const powerBtn = document.querySelector('.power-btn');
+const powerBtnCopy = document.querySelector('.power-btn-copy');
 const endScreen = document.querySelector('.end-screen');
 const gameRestart = document.querySelector('.game-restart');
 const resultDisplay = document.querySelector('.score');
@@ -9,7 +11,7 @@ const gridBoxes = document.querySelectorAll('.grid-box');
 
 //  DEFINING VARIABLES TO BE MANIPULATED LATER //
 let heroIndex;
-let direction;
+let direction; 
 let enemiesKilled = [];
 let enemies = [];
 
@@ -34,6 +36,9 @@ endGameZone.forEach((zone) => {
 // START GAME //
 
 const start = () => {
+
+    powerBtn.classList.add('display-none');
+    powerBtnCopy.classList.add('display')
 
     heroIndex = 174;
     direction = 1;
@@ -201,7 +206,7 @@ const gameOver = () => {
     resultDisplay.textContent = enemiesKilled.length;
 
     // STARTING GAME AGAIN //
-    begin();
+    start();
 }
 
 // const screenTopZone = [
