@@ -1,9 +1,15 @@
 const startScreen = document.querySelector('.start-screen');
 const startGame = document.querySelector('.start-game');
+
 const powerBtn = document.querySelector('.power-btn');
 const powerBtnCopy = document.querySelector('.power-btn-copy');
-const endScreen = document.querySelector('.end-screen');
+
+const endScreen = document.querySelector('.restart-screen');
 const gameRestart = document.querySelector('.game-restart');
+
+const winScreen = document.querySelector('.win-screen');
+const wonGame = document.querySelector('.won-game')
+
 const resultDisplay = document.querySelector('.score');
 const result = document.querySelector('.result')
 
@@ -71,7 +77,6 @@ const start = () => {
     window.enemyId;
 
     const moveEnemies = () => {
-
         
         for (let i = 0; i <= enemies.length - 1; i++) {
             gridBoxes[enemies[i]].classList.remove('enemy');
@@ -169,6 +174,14 @@ let laserId;
 
 // event listener for space bar //
 document.addEventListener('keyup', fireLaser);
+
+if(resultDisplay.textContent == 17) {
+    winScreen.classList.add('display');
+    wonGame.classList.add('display-text');
+    // result.textContent = enemiesKilled.length;
+}
+//     clearInterval(window.enemyId);
+
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
