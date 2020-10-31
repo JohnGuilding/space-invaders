@@ -175,13 +175,17 @@ let laserId;
 // event listener for space bar //
 document.addEventListener('keyup', fireLaser);
 
-// if(resultDisplay.textContent == 17) {
-//     winScreen.classList.add('display');
-//     wonGame.classList.add('display-text');
-//     // result.textContent = enemiesKilled.length;
-// }
-//     clearInterval(window.enemyId);
-
+const victory = () => {
+    if (enemiesKilled.length > 17) {
+        console.log('winner');
+        winScreen.classList.add('display');
+        wonGame.classList.add('display-text');
+        result.textContent = enemiesKilled.length;
+        clearInterval(window.enemyId);
+        clearInterval(checkEnemiesKilled);
+    }
+}
+const checkEnemiesKilled = setInterval(victory, 100);
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
