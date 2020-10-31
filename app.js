@@ -11,7 +11,8 @@ const winScreen = document.querySelector('.win-screen');
 const wonGame = document.querySelector('.won-game')
 
 const resultDisplay = document.querySelector('.score');
-const result = document.querySelector('.result')
+const lossResult = document.querySelector('.loss-result')
+const victoryResult = document.querySelector('.victory-result')
 
 const gridBoxes = document.querySelectorAll('.grid-box');
 
@@ -97,7 +98,7 @@ const start = () => {
                 clearInterval(window.enemyId);
                 endScreen.classList.add('display');
                 gameRestart.classList.add('display-text');
-                result.textContent = enemiesKilled.length;
+                lossResult.textContent = enemiesKilled.length;
             }
         });
     }
@@ -180,7 +181,7 @@ const victory = () => {
         console.log('winner');
         winScreen.classList.add('display');
         wonGame.classList.add('display-text');
-        result.textContent = enemiesKilled.length;
+        victoryResult.textContent = enemiesKilled.length;
         clearInterval(window.enemyId);
         clearInterval(checkEnemiesKilled);
     }
@@ -218,6 +219,9 @@ const gameOver = () => {
     // REMOVING GAMEOVER MESSAGE //
     endScreen.classList.remove('display');
     gameRestart.classList.remove('display-text');
+    //  REMOVING VICTORY MESSAGE //
+    winScreen.classList.remove('display');
+    wonGame.classList.remove('display-text');
 
     // RESETTING SCORE //
     resultDisplay.textContent = enemiesKilled.length;
@@ -225,6 +229,8 @@ const gameOver = () => {
     // STARTING GAME AGAIN //
     start();
 }
+
+// RANDOM CODE //
 
 // const screenTopZone = [
 //     0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
